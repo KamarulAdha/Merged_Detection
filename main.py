@@ -87,6 +87,9 @@ def detect_merged(image_input: np.ndarray, threshold_conf: float = 0.5) -> str:
                 if ((table[2] <= text[2] and table[2] >= text[0]) or (table[0] <= text[2] and table[0] >= text[0])) and (table[3] >= text[3] and table[1] <= text[1]):
                     response = "merged table"
                     break
+                if ((table[2] >= text[2]and table[0] <= text[0]) and ((table[3] <= text[3] and table[3] >= text[1]) or (table[1] <= text[3] and table[1] >= text[1]))):
+                    response = "merged table"
+                    break
             if response == "merged table":
                 break
 
